@@ -1,6 +1,5 @@
-const checkEnvVariables = require("./check-env-variables")
+import { withPayload } from '@payloadcms/next/withPayload'
 
-checkEnvVariables()
 
 /**
  * @type {import('next').NextConfig}
@@ -12,6 +11,9 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  experimental: {
+    reactCompiler: false
   },
   images: {
     remotePatterns: [
@@ -33,6 +35,10 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: [
+    '@payloadcms/ui',
+    '@payload'
+  ]
 }
 
-module.exports = nextConfig
+export default withPayload(nextConfig)

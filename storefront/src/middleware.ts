@@ -109,6 +109,11 @@ async function setCacheId(request: NextRequest, response: NextResponse) {
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+
+  if (pathname.includes("admin")) {
+    return NextResponse.next()
+  }
   const searchParams = request.nextUrl.searchParams
   const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")

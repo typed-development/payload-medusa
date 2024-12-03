@@ -1,6 +1,6 @@
-const path = require("path")
+import path from "path"
 
-module.exports = {
+export default {
   darkMode: "class",
   presets: [require("@medusajs/ui-preset")],
   content: [
@@ -158,5 +158,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-radix")()],
+  plugins: [import("tailwindcss-radix")],
 }
