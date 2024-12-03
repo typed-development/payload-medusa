@@ -10,31 +10,23 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { HttpTypes } from "@medusajs/types"
 
 export default function CategoryTemplate({
-  category,
+  productIds,
   sortBy,
   page,
   countryCode,
 }: {
-  category: HttpTypes.StoreProductCategory
+  productIds: string[]
   sortBy?: SortOptions
   page?: string
   countryCode: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
+  console.log({ productIds })
+  // const category = categories[categories.length - 1]
+  // const parents = categories.slice(0, categories.length - 1)
 
-  if (!category || !countryCode) notFound()
-
-  const parents = [] as HttpTypes.StoreProductCategory[]
-
-  const getParents = (category: HttpTypes.StoreProductCategory) => {
-    if (category.parent_category) {
-      parents.push(category.parent_category)
-      getParents(category.parent_category)
-    }
-  }
-
-  getParents(category)
+  // if (!category || !countryCode) notFound();
 
   return (
     <div
@@ -43,7 +35,7 @@ export default function CategoryTemplate({
     >
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="w-full">
-        <div className="flex flex-row mb-8 text-2xl-semi gap-4">
+        {/* <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents &&
             parents.map((parent) => (
               <span key={parent.id} className="text-ui-fg-subtle">
@@ -63,8 +55,8 @@ export default function CategoryTemplate({
           <div className="mb-8 text-base-regular">
             <p>{category.description}</p>
           </div>
-        )}
-        {category.category_children && (
+        )} */}
+        {/* {category.category_children && (
           <div className="mb-8 text-base-large">
             <ul className="grid grid-cols-1 gap-2">
               {category.category_children?.map((c) => (
@@ -76,18 +68,12 @@ export default function CategoryTemplate({
               ))}
             </ul>
           </div>
-        )}
-        <Suspense
-          fallback={
-            <SkeletonProductGrid
-              numberOfProducts={category.products?.length ?? 8}
-            />
-          }
-        >
+        )} */}
+        <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts
             sortBy={sort}
             page={pageNumber}
-            categoryId={category.id}
+            productsIds={productIds}
             countryCode={countryCode}
           />
         </Suspense>
