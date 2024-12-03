@@ -5,7 +5,7 @@ export const MedusaProductField: Field = {
   type: "text",
   admin: {
     components: {
-      Field: "./component",
+      Field: "@fields/medusaProduct/component#MedusaProduct",
     },
   },
 }

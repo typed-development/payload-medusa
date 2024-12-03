@@ -15,7 +15,9 @@
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types"
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "db:make-migration": "payload migrate:create",
+    "db:migrate": "payload migrate"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

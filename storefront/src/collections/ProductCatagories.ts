@@ -19,7 +19,9 @@ export const ProductCatagories: CollectionConfig = {
     useAsTitle: "slug",
     components: {
       views: {
-        edit: { root: { Component: "../components/CustomEditView" } },
+        edit: {
+          default: { Component: "@components/CustomEditView#CustomEditView" },
+        },
       },
     },
   },

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Fragment, useEffect } from "react"
+import React from "react"
 
 import { DefaultEditView } from "@payloadcms/ui"
 import { MedusaProvider } from "../provider"
@@ -14,5 +14,3 @@ export const CustomEditView = ({ ...props }) => {
     </MedusaProvider>
   )
 }
-
-export default CustomEditView

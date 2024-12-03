@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React from "react"
 
 export function SmallOption({ product }): React.JSX.Element {
   return (
@@ -14,7 +15,7 @@ export function SmallOption({ product }): React.JSX.Element {
         <div>{`${product.title}`}</div>
       </div>
     </div>
-  );
+  )
 }
 
 export function ProductOption({ product }): React.JSX.Element {
@@ -34,5 +35,5 @@ export function ProductOption({ product }): React.JSX.Element {
         </div>
       </div>
     </div>
-  );
+  )
 }
