@@ -6,5 +6,9 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
+    "Storefront": {
+      "type": "sst.aws.Nextjs"
+      "url": string
+    }
   }
 }
