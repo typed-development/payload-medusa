@@ -58,7 +58,7 @@ export default $config({
         COOKIE_SECRET: "supersecret",
         DATABASE_URL: process.env.DATABASE_URL || "",
         S3_FILE_URL:
-          "https://payloadmedusa-demo-assets-bwfndkoh.s3.ap-southeast-2.amazonaws.com",
+          "https://payloadmedusa-demo-assets-bdvwsrme.s3.ap-southeast-2.amazonaws.com",
         S3_REGION: "ap-southeast-2",
         S3_BUCKET: bucketName,
         S3_ENDPOINT: "https://s3.ap-southeast-2.amazonaws.com",
