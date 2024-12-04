@@ -10,6 +10,7 @@ import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
 import { Product } from "payload-types"
+import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -25,6 +26,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   countryCode,
   payloadProduct,
   relatedProductIds,
+  children,
 }) => {
   const [currentVariant, setCurrentVariant] = useState(product.variants[0].id)
   if (!product || !product.id) {
@@ -37,7 +39,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   if (payloadVariant?.images?.length !== 0) {
     images = payloadVariant?.images?.map((i) => ({ url: i.productImage }))
   }
-
   return (
     <>
       <div
@@ -72,17 +73,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           </Suspense>
         </div>
       </div>
-      <div
-        className="content-container my-16 small:my-32"
-        data-testid="related-products-container"
-      >
-        <Suspense>
-          {/* <RelatedProducts
-            relatedProductIds={relatedProductIds}
-            countryCode={countryCode}
-          /> */}
-        </Suspense>
-      </div>
+      {children}
     </>
   )
 }

@@ -6,6 +6,8 @@ import { getRegion, listRegions } from "@lib/data/regions"
 import { getProductByHandle } from "@lib/data/products"
 import { sdk } from "@lib/config"
 import { initPayload, payloadClient } from "payloadSdk"
+import RelatedProducts from "@modules/products/components/related-products"
+import { Suspense } from "react"
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -91,12 +93,30 @@ export default async function ProductPage(props: Props) {
     },
     // draft: isDraftMode,
   })
+  const payloadProduct = product?.docs[0]
+  const relatedProducts =
+    payloadProduct?.relatedProducts
+      ?.map((x) => x.productId)
+      .filter((x): x is string => x) || []
+
   return (
     <ProductTemplate
       product={pricedProduct}
       region={region}
-      payloadProduct={product?.docs[0]}
+      payloadProduct={payloadProduct}
       countryCode={params.countryCode}
-    />
+    >
+      <div
+        className="content-container my-16 small:my-32"
+        data-testid="related-products-container"
+      >
+        <Suspense fallback={"Loading.."}>
+          <RelatedProducts
+            region={region}
+            relatedProductIds={relatedProducts}
+          />
+        </Suspense>
+      </div>
+    </ProductTemplate>
   )
 }

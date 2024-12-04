@@ -82,7 +82,7 @@ export default async function CategoryPage(props: Props) {
   return (
     <CategoryTemplate
       productIds={
-        category?.docs[0].products
+        category?.docs[0]?.products
           ?.map((p) => p.productId)
           .filter((x): x is string => !!x) ?? []
       }

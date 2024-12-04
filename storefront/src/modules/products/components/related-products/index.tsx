@@ -1,5 +1,4 @@
 import Product from "../product-preview"
-import { getRegion } from "@lib/data/regions"
 
 type RelatedProductsProps = {
   relatedProductIds: string[]
@@ -8,14 +7,8 @@ type RelatedProductsProps = {
 
 export default async function RelatedProducts({
   relatedProductIds,
-  countryCode,
+  region,
 }: RelatedProductsProps) {
-  const region = await getRegion(countryCode)
-
-  if (!region) {
-    return null
-  }
-
   return (
     <div className="product-page-constraint">
       <div className="flex flex-col items-center text-center mb-16">
@@ -30,7 +23,7 @@ export default async function RelatedProducts({
       <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
         {relatedProductIds.map((product) => (
           <li key={product}>
-            {<Product region={region} productId={product} />}
+            <Product region={region} productId={product} />
           </li>
         ))}
       </ul>

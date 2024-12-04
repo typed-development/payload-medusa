@@ -8,16 +8,16 @@ import { getProductsById } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 
 export default async function ProductPreview({
-  productId,
+  product,
   isFeatured,
   region,
 }: {
-  productId: string
+  product: HttpTypes.StoreProduct
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
 }) {
   const [pricedProduct] = await getProductsById({
-    ids: [productId],
+    ids: [product.id!],
     regionId: region.id,
   })
 
@@ -30,20 +30,17 @@ export default async function ProductPreview({
   })
 
   return (
-    <LocalizedClientLink
-      href={`/products/${pricedProduct.handle}`}
-      className="group"
-    >
+    <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div data-testid="product-wrapper">
         <Thumbnail
-          thumbnail={pricedProduct.thumbnail}
-          images={pricedProduct.images}
+          thumbnail={product.thumbnail}
+          images={product.images}
           size="full"
           isFeatured={isFeatured}
         />
         <div className="flex txt-compact-medium mt-4 justify-between">
           <Text className="text-ui-fg-subtle" data-testid="product-title">
-            {pricedProduct.title}
+            {product.title}
           </Text>
           <div className="flex items-center gap-x-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}

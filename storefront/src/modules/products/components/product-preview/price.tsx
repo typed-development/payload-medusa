@@ -1,3 +1,4 @@
+"use client"
 import { Text, clx } from "@medusajs/ui"
 import { VariantPrice } from "types/global"
 
