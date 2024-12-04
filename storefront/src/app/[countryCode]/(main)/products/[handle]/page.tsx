@@ -5,6 +5,7 @@ import ProductTemplate from "@modules/products/templates"
 import { getRegion, listRegions } from "@lib/data/regions"
 import { getProductByHandle } from "@lib/data/products"
 import { sdk } from "@lib/config"
+import { initPayload, payloadClient } from "payloadSdk"
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -45,7 +46,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   const { handle } = params
   const region = await getRegion(params.countryCode)
 
@@ -71,7 +72,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function ProductPage(props: Props) {
-  const params = await props.params;
+  const params = await props.params
   const region = await getRegion(params.countryCode)
 
   if (!region) {
@@ -82,11 +83,19 @@ export default async function ProductPage(props: Props) {
   if (!pricedProduct) {
     notFound()
   }
-
+  await initPayload()
+  const product = await payloadClient?.find({
+    collection: "products",
+    where: {
+      slug: { equals: pricedProduct.handle },
+    },
+    // draft: isDraftMode,
+  })
   return (
     <ProductTemplate
       product={pricedProduct}
       region={region}
+      payloadProduct={product?.docs[0]}
       countryCode={params.countryCode}
     />
   )

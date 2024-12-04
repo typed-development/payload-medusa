@@ -6395,6 +6395,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-selector-tokenizer@npm:^0.8":
+  version: 0.8.0
+  resolution: "css-selector-tokenizer@npm:0.8.0"
+  dependencies:
+    cssesc: ^3.0.0
+    fastparse: ^1.1.2
+  checksum: 1eb7ca7d2c21ede700a0fab7df4547198431c30ba62663d81a566a8abe6ab7524f627ce6c0bde63f34917e199b73be4081e449bd8faf107d155766204082aa0a
+  languageName: node
+  linkType: hard
+
 "cssesc@npm:^3.0.0":
   version: 3.0.0
   resolution: "cssesc@npm:3.0.0"
@@ -6418,6 +6428,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"culori@npm:^3":
+  version: 3.3.0
+  resolution: "culori@npm:3.3.0"
+  checksum: 7091ab572ed49222a25872a0c2c350340b96dac1c3237a7b58a93bfb02d11c64d68c585c32f91985a563b3d52402d16722e33a00087456287df28e3db5d99f13
+  languageName: node
+  linkType: hard
+
 "cva@npm:1.0.0-beta.1":
   version: 1.0.0-beta.1
   resolution: "cva@npm:1.0.0-beta.1"
@@ -6429,6 +6446,18 @@ __metadata:
     typescript:
       optional: true
   checksum: d28a53076565198486c2e39e346d4002f47aba946ffc0806d077225bcc64221943260ade40d819094851e28e5f59823a9e7c4cb3195dfcceb7b95aff685e3316
+  languageName: node
+  linkType: hard
+
+"daisyui@npm:4.12.10":
+  version: 4.12.10
+  resolution: "daisyui@npm:4.12.10"
+  dependencies:
+    css-selector-tokenizer: ^0.8
+    culori: ^3
+    picocolors: ^1
+    postcss-js: ^4
+  checksum: 506e7545502b75f43995f6fd460c907e95af03b12d750b49dbec14338d81d91b540cded0179004c87d2a326d024500b8529a456f70819bff24011b269f76aeec
   languageName: node
   linkType: hard
 
@@ -7672,6 +7701,13 @@ __metadata:
   version: 3.0.3
   resolution: "fast-uri@npm:3.0.3"
   checksum: c52e6c86465f5c240e84a4485fb001088cc743d261a4b54b0050ce4758b1648bdbe53da1328ef9620149dca1435e3de64184f226d7c0a3656cb5837b3491e149
+  languageName: node
+  linkType: hard
+
+"fastparse@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "fastparse@npm:1.1.2"
+  checksum: c4d199809dc4e8acafeb786be49481cc9144de296e2d54df4540ccfd868d0df73afc649aba70a748925eb32bbc4208b723d6288adf92382275031a8c7e10c0aa
   languageName: node
   linkType: hard
 
@@ -9171,6 +9207,7 @@ __metadata:
     axios: ^1.6.7
     babel-loader: ^8.2.3
     cross-env: ^7.0.3
+    daisyui: 4.12.10
     eslint: 8.10.0
     eslint-config-next: 15.0.3
     graphql: ^16.9.0
@@ -10276,7 +10313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:^1.0.0, picocolors@npm:^1.0.1, picocolors@npm:^1.1.0, picocolors@npm:^1.1.1":
+"picocolors@npm:^1, picocolors@npm:^1.0.0, picocolors@npm:^1.0.1, picocolors@npm:^1.1.0, picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
   checksum: e1cf46bf84886c79055fdfa9dcb3e4711ad259949e3565154b004b260cd356c5d54b31a1437ce9782624bf766272fe6b0154f5f0c744fb7af5d454d2b60db045
@@ -10407,7 +10444,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-js@npm:^4.0.1":
+"postcss-js@npm:^4, postcss-js@npm:^4.0.1":
   version: 4.0.1
   resolution: "postcss-js@npm:4.0.1"
   dependencies:

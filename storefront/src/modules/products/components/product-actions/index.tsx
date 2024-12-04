@@ -18,9 +18,10 @@ type ProductActionsProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   disabled?: boolean
+  setCurrentVariant: (a: any) => void
 }
 
-const optionsAsKeymap = (variantOptions: HttpTypes.StoreProductVariant["options"]) => {
+const optionsAsKeymap = (variantOptions: any) => {
   return variantOptions?.reduce((acc: Record<string, string>, varopt: any) => {
     acc[varopt.option_id] = varopt.value
     return acc
@@ -31,6 +32,7 @@ export default function ProductActions({
   product,
   region,
   disabled,
+  setCurrentVariant,
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
@@ -85,6 +87,12 @@ export default function ProductActions({
 
     // Otherwise, we can't add to cart
     return false
+  }, [selectedVariant])
+
+  useEffect(() => {
+    if (selectedVariant) {
+      setCurrentVariant(selectedVariant?.id)
+    }
   }, [selectedVariant])
 
   const actionsRef = useRef<HTMLDivElement>(null)

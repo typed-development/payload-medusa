@@ -37,6 +37,7 @@
     "algoliasearch": "^4.20.0",
     "axios": "^1.6.7",
     "cross-env": "^7.0.3",
+    "daisyui": "4.12.10",
     "graphql": "^16.9.0",
     "lodash": "^4.17.21",
     "next": "15.0.3",

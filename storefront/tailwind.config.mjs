@@ -1,5 +1,6 @@
 import path from "path"
-
+import daisyui from "daisyui"
+import radix from "tailwindcss-radix"
 export default {
   darkMode: "class",
   presets: [require("@medusajs/ui-preset")],
@@ -158,5 +159,5 @@ export default {
       },
     },
   },
-  plugins: [import("tailwindcss-radix")],
+  plugins: [radix, daisyui],
 }

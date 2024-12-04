@@ -1,3 +1,4 @@
+"use client"
 import * as React from "react"
 import { SelectInput, useField } from "@payloadcms/ui"
 import { useMedusaProductContext } from "../../provider"
@@ -6,7 +7,8 @@ export function SingleImageSelectComponent({ path }: { path }) {
   const { value, setValue } = useField<string>({ path })
 
   const medusa = useMedusaProductContext()
-  if (!medusa.product) return null
+  console.log(medusa?.product)
+  if (!medusa?.product) return null
 
   const variantOptions = medusa.product.variants.map((variant) => {
     return {
