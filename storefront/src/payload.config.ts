@@ -8,6 +8,7 @@ import { fileURLToPath } from "url"
 import { Users } from "./collections/Users"
 import { Media } from "./collections/Media"
 import { ProductCatagories } from "./collections/ProductCatagories"
+import { Products } from "./collections/Product"
 
 import { postgresAdapter } from "@payloadcms/db-postgres"
 
@@ -21,7 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, ProductCatagories],
+  collections: [Users, Media, ProductCatagories, Products],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

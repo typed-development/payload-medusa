@@ -14,6 +14,7 @@ export interface Config {
     users: User;
     media: Media;
     productCategories: ProductCategory;
+    products: Product;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -23,6 +24,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     productCategories: ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -130,6 +132,65 @@ export interface ProductCategory {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  medusaProductId?: string | null;
+  title: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  publishedAt?: string | null;
+  variants?:
+    | {
+        productVariant?: string | null;
+        images?:
+          | {
+              productImage?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  relatedProducts?:
+    | {
+        productId?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  productOptions?:
+    | {
+        productOption?: string | null;
+        optionValues?:
+          | {
+              productOptionValue?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -146,6 +207,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'productCategories';
         value: number | ProductCategory;
+      } | null)
+    | ({
+        relationTo: 'products';
+        value: number | Product;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -236,6 +301,50 @@ export interface ProductCategoriesSelect<T extends boolean = true> {
         productId?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  medusaProductId?: T;
+  title?: T;
+  description?: T;
+  publishedAt?: T;
+  variants?:
+    | T
+    | {
+        productVariant?: T;
+        images?:
+          | T
+          | {
+              productImage?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  relatedProducts?:
+    | T
+    | {
+        productId?: T;
+        id?: T;
+      };
+  productOptions?:
+    | T
+    | {
+        productOption?: T;
+        optionValues?:
+          | T
+          | {
+              productOptionValue?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
