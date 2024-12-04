@@ -8,7 +8,7 @@ type ContextType = {
   allProducts: any[]
   product: any
 }
-const SomeContext = React.createContext<ContextType>(null)
+const MedusaContext = React.createContext<ContextType>(null)
 
 export const MedusaProvider = ({ id, productId: savedProductId, children }) => {
   const [state, setState] = React.useState({
@@ -37,7 +37,6 @@ export const MedusaProvider = ({ id, productId: savedProductId, children }) => {
   }
 
   const fetchProduct = async (productId) => {
-    if (!productId) return
     try {
       const product = (await sdk.store.product.retrieve(productId)).product
 
@@ -55,7 +54,9 @@ export const MedusaProvider = ({ id, productId: savedProductId, children }) => {
   }, [])
 
   React.useEffect(() => {
-    fetchProduct(productId)
+    if (productId) {
+      fetchProduct(productId)
+    }
   }, [productId])
 
   const context = {
@@ -70,12 +71,12 @@ export const MedusaProvider = ({ id, productId: savedProductId, children }) => {
   }
 
   return (
-    <SomeContext.Provider key={id} value={context}>
+    <MedusaContext.Provider key={id} value={context}>
       {children}
-    </SomeContext.Provider>
+    </MedusaContext.Provider>
   )
 }
 
 export const useMedusaProductContext = () => {
-  return React.useContext(SomeContext)
+  return React.useContext(MedusaContext)
 }

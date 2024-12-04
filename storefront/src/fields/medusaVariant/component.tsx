@@ -7,7 +7,6 @@ export function SingleImageSelectComponent({ path }: { path }) {
   const { value, setValue } = useField<string>({ path })
 
   const medusa = useMedusaProductContext()
-  console.log(medusa?.product)
   if (!medusa?.product) return null
 
   const variantOptions = medusa.product.variants.map((variant) => {

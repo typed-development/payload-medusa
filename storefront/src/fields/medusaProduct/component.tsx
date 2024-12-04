@@ -1,38 +1,50 @@
 "use client"
 import * as React from "react"
+import { useField } from "@payloadcms/ui"
 import { useMedusaProductContext } from "../../provider"
-import { SelectInput, useAuth, useField } from "@payloadcms/ui"
+import ReactSelect from "react-select"
+import { createFilter } from "react-select"
 import { ProductOption, SmallOption } from "../../components/ProductOption"
-import { TextFieldClientComponent } from "payload"
 
-export const MedusaProduct: TextFieldClientComponent = ({ path }) => {
+export const MedusaProduct: React.FC<{ path: string }> = ({ path }) => {
   const { value, setValue } = useField<string>({ path })
 
   const medusa = useMedusaProductContext()
 
   const products = [...medusa.allProducts]
-  console.log({ products })
-  const productOptions = products.map((product) => {
-    return {
-      label: product.title,
-      value: product.id,
-    }
-  })
+
+  const productOptions = [
+    ...products.flatMap((product) => {
+      return [
+        {
+          label: <ProductOption product={product} />,
+          smallLabel: <SmallOption product={product} />,
+          string: `${product.title} ${product.variants
+            .map((x) => x.sku)
+            .join(", ")}`,
+          value: product.id,
+        },
+      ]
+    }),
+  ]
+  productOptions.sort((a, b) => a.string.localeCompare(b.string))
 
   return (
     <div className="field-type">
       <label className="field-label">Select product</label>
-      <SelectInput
+      <ReactSelect
         options={productOptions}
-        value={value}
-        // filterOption={createFilter({
-        //   stringify: (option) => (option.data as any).string ?? "",
-        // })}
-        onChange={(v) => {
-          setValue(v.value)
+        value={{
+          value: value,
+          label: productOptions.find((option) => option.value === value)
+            ?.smallLabel,
         }}
-        name={path}
-        path={path}
+        filterOption={createFilter({
+          stringify: (option) => (option.data as any).string ?? "",
+        })}
+        onChange={(e) => {
+          setValue(e.value)
+        }}
       />
     </div>
   )

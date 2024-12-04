@@ -7,8 +7,6 @@ import { useMedusaProductContext } from "../../provider"
 export const MedusaProductOption: React.FC<{ path: string }> = ({ path }) => {
   const { value, setValue } = useField<string>({ path })
 
-  console.log("MedusaProductOption", path, value)
-
   const medusa = useMedusaProductContext()
   const productOptions = medusa.product.options.map((option) => {
     return {

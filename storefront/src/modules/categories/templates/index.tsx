@@ -22,7 +22,6 @@ export default function CategoryTemplate({
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
-  console.log({ productIds })
   // const category = categories[categories.length - 1]
   // const parents = categories.slice(0, categories.length - 1)
 

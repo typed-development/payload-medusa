@@ -30,7 +30,7 @@ export const MedusaCollectionProduct: React.FC<{ path: string }> = ({
   const [fields, dispatchFields] = useAllFormFields()
 
   React.useEffect(() => {
-    if (!medusa.product) return
+    if (!medusa?.product) return
     dispatchFields({
       type: "UPDATE",
       path: "slug",

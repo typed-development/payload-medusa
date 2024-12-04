@@ -78,7 +78,6 @@ export default async function CategoryPage(props: Props) {
   if (!category) {
     notFound()
   }
-  console.log({ category })
 
   return (
     <CategoryTemplate
