@@ -33,6 +33,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "payloadmedusa-demo-assets-bwfndkoh.s3.ap-southeast-2.amazonaws.com",
+      },
     ],
   },
   transpilePackages: [

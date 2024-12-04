@@ -5878,6 +5878,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"aws4fetch@npm:^1.0.18":
+  version: 1.0.20
+  resolution: "aws4fetch@npm:1.0.20"
+  checksum: 34c6904cee62d9a5d29224a3c13dc1b8fbdf569387f56fe528a0089bf710ca600193fca1863298014d6f2eabfdad6c49ec458c379d661d230252927e1046ebff
+  languageName: node
+  linkType: hard
+
 "axe-core@npm:^4.10.0":
   version: 4.10.2
   resolution: "axe-core@npm:4.10.2"
@@ -6678,6 +6685,13 @@ __metadata:
     "@babel/runtime": ^7.8.7
     csstype: ^3.0.2
   checksum: 863ba9e086f7093df3376b43e74ce4422571d404fc9828bf2c56140963d5edf0e56160f9b2f3bb61b282c07f8fc8134f023c98fd684bddcb12daf7b0f14d951c
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.4.7":
+  version: 16.4.7
+  resolution: "dotenv@npm:16.4.7"
+  checksum: c27419b5875a44addcc56cc69b7dc5b0e6587826ca85d5b355da9303c6fc317fc9989f1f18366a16378c9fdd9532d14117a1abe6029cc719cdbbef6eaef2cea4
   languageName: node
   linkType: hard
 
@@ -8786,10 +8800,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jose@npm:5.2.3":
+  version: 5.2.3
+  resolution: "jose@npm:5.2.3"
+  checksum: 7c41025d3e449f654a4cbf0e18e3a4a3bcb74b242d716e2e665a20be5c93b3f68421032a4531fd984d4bad6aa225c7c517da18da6e0cf778b104cd7e30bde5de
+  languageName: node
+  linkType: hard
+
 "jose@npm:5.9.6":
   version: 5.9.6
   resolution: "jose@npm:5.9.6"
   checksum: 4b536da0201858ed4c4582e8bb479081f11e0c63dd0f5e473adde16fc539785e1f2f0409bc1fc7cbbb5b68026776c960b4952da3a06f6fdfff0b9764c9127ae0
+  languageName: node
+  linkType: hard
+
+"jose@npm:^4.15.4":
+  version: 4.15.9
+  resolution: "jose@npm:4.15.9"
+  checksum: 41abe1c99baa3cf8a78ebbf93da8f8e50e417b7a26754c4afa21865d87527b8ac2baf66de2c5f6accc3f7d7158658dae7364043677236ea1d07895b040097f15
   languageName: node
   linkType: hard
 
@@ -9058,6 +9086,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "lru-cache@npm:6.0.0"
+  dependencies:
+    yallist: ^4.0.0
+  checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
+  languageName: node
+  linkType: hard
+
 "make-dir@npm:^3.0.2, make-dir@npm:^3.1.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
@@ -9208,6 +9245,7 @@ __metadata:
     babel-loader: ^8.2.3
     cross-env: ^7.0.3
     daisyui: 4.12.10
+    dotenv: ^16.4.7
     eslint: 8.10.0
     eslint-config-next: 15.0.3
     graphql: ^16.9.0
@@ -9225,6 +9263,7 @@ __metadata:
     react-select: ^5.8.3
     server-only: ^0.0.1
     sharp: ^0.33.5
+    sst: 3.3.38
     tailwindcss: ^3.0.23
     tailwindcss-radix: ^2.8.0
     typescript: 5.7.2
@@ -9903,6 +9942,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object-hash@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "object-hash@npm:2.2.0"
+  checksum: 55ba841e3adce9c4f1b9b46b41983eda40f854e0d01af2802d3ae18a7085a17168d6b81731d43fdf1d6bcbb3c9f9c56d22c8fea992203ad90a38d7d919bc28f1
+  languageName: node
+  linkType: hard
+
 "object-hash@npm:^3.0.0":
   version: 3.0.0
   resolution: "object-hash@npm:3.0.0"
@@ -9995,6 +10041,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"oidc-token-hash@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "oidc-token-hash@npm:5.0.3"
+  checksum: 35fa19aea9ff2c509029ec569d74b778c8a215b92bd5e6e9bc4ebbd7ab035f44304ff02430a6397c3fb7c1d15ebfa467807ca0bcd31d06ba610b47798287d303
+  languageName: node
+  linkType: hard
+
 "on-exit-leak-free@npm:^2.1.0":
   version: 2.1.2
   resolution: "on-exit-leak-free@npm:2.1.2"
@@ -10008,6 +10061,18 @@ __metadata:
   dependencies:
     wrappy: 1
   checksum: cd0a88501333edd640d95f0d2700fbde6bff20b3d4d9bdc521bdd31af0656b5706570d6c6afe532045a20bb8dc0849f8332d6f2a416e0ba6d3d3b98806c7db68
+  languageName: node
+  linkType: hard
+
+"openid-client@npm:5.6.4":
+  version: 5.6.4
+  resolution: "openid-client@npm:5.6.4"
+  dependencies:
+    jose: ^4.15.4
+    lru-cache: ^6.0.0
+    object-hash: ^2.2.0
+    oidc-token-hash: ^5.0.3
+  checksum: 69843f078dacbbc6bad6d65ca6689414ac73f095dfe2f8e606822e6cfc9d9cd7d0dfaf2649352eda604653806f0ea65326ad2d6266da897e4740ec93d26d21f6
   languageName: node
   linkType: hard
 
@@ -11666,6 +11731,78 @@ __metadata:
   dependencies:
     minipass: ^7.0.3
   checksum: 4603d53a05bcd44188747d38f1cc43833b9951b5a1ee43ba50535bdfc5fe4a0897472dbe69837570a5417c3c073377ef4f8c1a272683b401857f72738ee57299
+  languageName: node
+  linkType: hard
+
+"sst-darwin-arm64@npm:3.3.38":
+  version: 3.3.38
+  resolution: "sst-darwin-arm64@npm:3.3.38"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sst-darwin-x64@npm:3.3.38":
+  version: 3.3.38
+  resolution: "sst-darwin-x64@npm:3.3.38"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sst-linux-arm64@npm:3.3.38":
+  version: 3.3.38
+  resolution: "sst-linux-arm64@npm:3.3.38"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"sst-linux-x64@npm:3.3.38":
+  version: 3.3.38
+  resolution: "sst-linux-x64@npm:3.3.38"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"sst-linux-x86@npm:3.3.38":
+  version: 3.3.38
+  resolution: "sst-linux-x86@npm:3.3.38"
+  conditions: os=linux & cpu=x86
+  languageName: node
+  linkType: hard
+
+"sst@npm:3.3.38":
+  version: 3.3.38
+  resolution: "sst@npm:3.3.38"
+  dependencies:
+    aws4fetch: ^1.0.18
+    jose: 5.2.3
+    openid-client: 5.6.4
+    sst-darwin-arm64: 3.3.38
+    sst-darwin-x64: 3.3.38
+    sst-linux-arm64: 3.3.38
+    sst-linux-x64: 3.3.38
+    sst-linux-x86: 3.3.38
+  peerDependencies:
+    hono: 4.x
+    valibot: 0.30.x
+  dependenciesMeta:
+    sst-darwin-arm64:
+      optional: true
+    sst-darwin-x64:
+      optional: true
+    sst-linux-arm64:
+      optional: true
+    sst-linux-x64:
+      optional: true
+    sst-linux-x86:
+      optional: true
+  peerDependenciesMeta:
+    hono:
+      optional: true
+    valibot:
+      optional: true
+  bin:
+    sst: bin/sst.mjs
+  checksum: 9bf4925957d669d6b5ecb108534723011da6f4359f30384e2de42c871e6feec546739c89cb8cf452bf980f9cb695c5bd5ffa003e16eff9b00ee2c09ac1432e15
   languageName: node
   linkType: hard
 

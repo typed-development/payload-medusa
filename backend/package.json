@@ -13,13 +13,15 @@
     "medusa"
   ],
   "scripts": {
-    "build": "medusa build",
+    "build": "medusa build && ln -s .medusa/server/public/ public",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
-    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
+    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "db:migrate": "yarn medusa db:migrate",
+    "deploy:demo": "yarn sst deploy --stage demo"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "latest",
@@ -31,7 +33,9 @@
     "@mikro-orm/migrations": "5.9.7",
     "@mikro-orm/postgresql": "5.9.7",
     "awilix": "^8.0.1",
-    "pg": "^8.13.0"
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.0",
+    "sst": "3.3.38"
   },
   "devDependencies": {
     "@medusajs/test-utils": "latest",
@@ -52,5 +56,6 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "yarn@4.5.3"
 }

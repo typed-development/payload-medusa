@@ -17,7 +17,8 @@
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "db:make-migration": "payload migrate:create",
-    "db:migrate": "payload migrate"
+    "db:migrate": "payload migrate",
+    "deploy:demo": "yarn sst deploy --stage demo"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -38,6 +39,7 @@
     "axios": "^1.6.7",
     "cross-env": "^7.0.3",
     "daisyui": "4.12.10",
+    "dotenv": "^16.4.7",
     "graphql": "^16.9.0",
     "lodash": "^4.17.21",
     "next": "15.0.3",
@@ -51,6 +53,7 @@
     "react-select": "^5.8.3",
     "server-only": "^0.0.1",
     "sharp": "^0.33.5",
+    "sst": "3.3.38",
     "tailwindcss-radix": "^2.8.0",
     "webpack": "^5"
   },

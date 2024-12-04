@@ -63,7 +63,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-
+.env.demo
 # vercel
 .vercel
 
@@ -83,3 +83,7 @@ dump.rdb
 /blob-report/
 /playwright/.cache/
 /playwright/.auth
+
+.sst
+.medusa
+.open-next

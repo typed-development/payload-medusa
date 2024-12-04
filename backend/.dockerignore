@@ -1,0 +1,32 @@
+dist
+.env
+.DS_Store
+uploads
+node_modules
+yarn-error.log
+.idea
+uploads
+.cache
+.env*
+.env
+.cache/
+build
+.env.me
+.env.production
+.turbo
+.yarn
+.next
+out
+docs
+
+# sst
+.sst
+.git
+.turbo
+
+# sst
+.sst
+.medusa
+sst.config.ts
+sst-env.d.ts
+src/scripts/seed.ts
