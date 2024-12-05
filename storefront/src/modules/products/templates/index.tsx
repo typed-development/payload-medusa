@@ -18,6 +18,7 @@ type ProductTemplateProps = {
   countryCode: string
   payloadProduct?: Product
   relatedProductIds?: string[]
+  children: React.ReactNode
 }
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
@@ -36,7 +37,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
     (i) => i.productVariant === currentVariant
   )
   let images = product.images
-  if (payloadVariant?.images?.length !== 0) {
+  if (payloadVariant?.images && payloadVariant?.images?.length !== 0) {
     images = payloadVariant?.images?.map((i) => ({ url: i.productImage }))
   }
   return (

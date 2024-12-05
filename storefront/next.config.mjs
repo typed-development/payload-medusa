@@ -35,7 +35,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "payloadmedusa-demo-assets-bwfndkoh.s3.ap-southeast-2.amazonaws.com",
+        hostname: "payloadmedusa-demo-assets-bdvwsrme.s3.ap-southeast-2.amazonaws.com",
       },
     ],
   },

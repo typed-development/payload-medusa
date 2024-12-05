@@ -7,6 +7,7 @@ type ImageGalleryProps = {
 }
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
+  console.log({ images })
   return (
     <div className="carousel w-full">
       {images.map((image, index) => {
